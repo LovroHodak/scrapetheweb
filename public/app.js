@@ -1,4 +1,5 @@
 const statesElement = document.querySelector('#states')
+const infoElement = document.querySelector('#info')
 
 function setUSStates(states){
     states.forEach((state) => {
@@ -7,7 +8,11 @@ function setUSStates(states){
         optionElement.textContent = state.name
         statesElement.append(optionElement)
 
-        
+
+        optionElement.addEventListener('click', () => {
+            infoElement.innerHTML = `<pre>${JSON.stringify(state, null, 2)}</pre>`
+            console.log('am i workin?')
+        })
     })
 }
 
